@@ -7,6 +7,8 @@ description = ""
 authors = [
     {name = "jhenifer", email = "jhenifermachado211@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "django>=4.1.7",
+]
 requires-python = ">=3.10"
 license = {text = "MIT"}
