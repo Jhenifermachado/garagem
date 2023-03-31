@@ -1,4 +1,8 @@
 [tool.pdm]
+[tool.pdm.dev-dependencies]
+format = [
+    "black>=23.3.0",
+]
 
 [project]
 name = ""
