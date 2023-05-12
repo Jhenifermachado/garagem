@@ -1,5 +1,12 @@
 from django.db import models
 
+class Marca(models.Model):
+
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome.upper()
+
 
 class Acessorio(models.Model):
 
@@ -19,6 +26,15 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.descricao.title()
+    
+class Modelo(models.Model):
+    nome = models.CharField(max_length=50)
+    marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f"{self.marca} {self.nome} {self.categoria}"
+
 
 
 class Cor(models.Model):
@@ -32,12 +48,7 @@ class Cor(models.Model):
         verbose_name_plural = "Cores"
 
 
-class Marca(models.Model):
 
-    nome = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.nome.upper()
 
 
 class Veiculo(models.Model):
